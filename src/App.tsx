@@ -40,7 +40,7 @@ export const App: React.FC = () => {
             return todo.completed;
 
           default:
-            return todo;
+            return true;
         }
       });
     }
@@ -56,7 +56,8 @@ export const App: React.FC = () => {
         setTodos(data);
         setFilteredTodos(data);
       })
-      .catch()
+      // eslint-disable-next-line no-console
+      .catch(() => console.error('loading error'))
       .finally(() => setLoading(false));
   }, []);
 
